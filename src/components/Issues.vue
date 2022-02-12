@@ -15,6 +15,16 @@
         <app-issue />
         <app-issue />
         <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
       </div>
     </div>
   </div>
