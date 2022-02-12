@@ -5,6 +5,7 @@
     <div class="main-content">
       <app-issues />
     </div>
+
     <app-footer />
   </main>
 </template>

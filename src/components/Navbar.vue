@@ -27,6 +27,9 @@ export default {
   grid-template-columns: 90px 1fr 90px;
   height: 60px;
   align-items: stretch;
+  /* position: sticky;
+  top: 0px;
+  z-index: 1; */
 }
 
 .nav-title {

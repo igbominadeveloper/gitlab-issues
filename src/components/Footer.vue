@@ -16,6 +16,8 @@ export default {
   padding: 20px;
   text-align: center;
 
+  flex-shrink: 0;
+
   position: fixed;
   bottom: 0;
   width: 100%;
