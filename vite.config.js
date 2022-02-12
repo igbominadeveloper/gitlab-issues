@@ -32,6 +32,10 @@ export default (/** if you want to use mode : { mode }*/) => {
           find: '@utils',
           replacement: `${REPLACEMENT}utils/index`,
         },
+        {
+          find: '@services',
+          replacement: `${REPLACEMENT}services/index`,
+        },
       ],
     },
     plugins: [

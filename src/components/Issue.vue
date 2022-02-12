@@ -1,13 +1,15 @@
 <template>
   <div class="issue">
-    <div class="issue-emoji" @click="assignNewEmoji">
-      {{ emojiHex | emoji }}
-    </div>
+    <transition name="emoji">
+      <div class="issue-emoji" @click="changeEmoji">
+        {{ emojiHex | emoji }}
+      </div>
+    </transition>
 
     <div class="issue-body">
       <p v-text="title" />
-      <p class="issue-body-milestone" v-show="milestone.length > 0">
-        Milestone: Challenge Completion
+      <p class="issue-body-milestone" v-if="milestone">
+        Milestone: {{ milestone.title }}
       </p>
     </div>
   </div>
@@ -20,16 +22,56 @@ export default {
   name: 'Issue',
   data: () => ({
     emojiHex: '',
-    title: 'Test Issue',
-    milestone: 'Milestone: Challenge Completion',
   }),
-  created() {
-    this.assignNewEmoji();
+
+  props: {
+    id: {
+      type: Number,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    milestone: {
+      type: Object,
+      validator(milestone) {
+        return milestone !== null;
+      },
+    },
+  },
+
+  mounted() {
+    this.setIssueEmoji();
   },
 
   methods: {
-    assignNewEmoji() {
-      this.emojiHex = randomEmoji();
+    getEmojisFromStore() {
+      const emojisInLocalstorage = localStorage.getItem('emojis');
+
+      const emojisMap = emojisInLocalstorage
+        ? JSON.parse(emojisInLocalstorage)
+        : {};
+
+      return emojisMap;
+    },
+
+    setIssueEmoji() {
+      const emojis = this.getEmojisFromStore();
+
+      this.emojiHex = emojis[this.id] ?? randomEmoji();
+    },
+
+    changeEmoji() {
+      const newEmoji = randomEmoji();
+
+      const emojisMap = this.getEmojisFromStore();
+
+      emojisMap[this.id] = newEmoji;
+
+      localStorage.setItem('emojis', JSON.stringify(emojisMap));
+
+      this.emojiHex = newEmoji;
     },
   },
 };
@@ -77,5 +119,15 @@ export default {
 
 .issue-body-milestone {
   opacity: 0.6;
+}
+
+.emoji-enter-active,
+.emoji-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.emoji-enter-from,
+.emoji-leave-to {
+  opacity: 0;
 }
 </style>
