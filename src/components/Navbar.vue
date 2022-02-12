@@ -53,6 +53,13 @@ export default {
   font-weight: bolder;
 }
 
+.nav-item:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.3s linear;
+  background: linear-gradient(var(--color-white), var(--color-primary));
+}
+
 .nav-logo {
   border-bottom-right-radius: 38px 108px;
 }
