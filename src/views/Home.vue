@@ -29,8 +29,6 @@ export default {
 .main {
   width: 100%;
   height: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
 
   background-color: var(--color-white);
 }

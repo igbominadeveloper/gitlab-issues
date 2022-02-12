@@ -1,4 +1,4 @@
-export const randomEmoji = () => {
+export function randomEmoji() {
   const emojis = [
     127790, 127791, 127792, 127793, 127794, 127795, 127796, 127797, 127798,
     127799, 127800, 127801, 127802, 127803, 127804, 127805, 127806, 127807,
@@ -12,7 +12,9 @@ export const randomEmoji = () => {
     127871, 127872, 127873, 127874, 127875, 127876, 127877, 127878,
   ];
 
-  return emojis[Math.floor(Math.random() * 88)];
-};
+  const randomIndex = Math.floor(Math.random() * 88);
+
+  return emojis[randomIndex];
+}
 
 export const emoji = (hex) => `&#${hex};`;

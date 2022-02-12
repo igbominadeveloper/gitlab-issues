@@ -1,8 +1,9 @@
 <template>
   <div class="issue">
-    <div class="issue-emoji">
+    <div class="issue-emoji" @click="assignNewEmoji">
       {{ emojiHex | emoji }}
     </div>
+
     <div class="issue-body">
       <p v-text="title" />
       <p class="issue-body-milestone" v-show="milestone.length > 0">
@@ -23,7 +24,13 @@ export default {
     milestone: 'Milestone: Challenge Completion',
   }),
   created() {
-    this.emojiHex = randomEmoji();
+    this.assignNewEmoji();
+  },
+
+  methods: {
+    assignNewEmoji() {
+      this.emojiHex = randomEmoji();
+    },
   },
 };
 </script>
@@ -51,6 +58,13 @@ export default {
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+
+  cursor: pointer;
+}
+
+.issue-emoji:hover {
+  font-size: 25px;
+  transition: font-size 0.3s 0.3s ease-in-out;
 }
 
 .issue-body {

@@ -25,6 +25,36 @@
         <app-issue />
         <app-issue />
         <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
+        <app-issue />
       </div>
     </div>
   </div>
@@ -52,5 +82,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+
+  padding-bottom: 60px;
 }
 </style>
