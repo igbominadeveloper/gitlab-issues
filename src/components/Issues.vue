@@ -1,40 +1,46 @@
 <template>
   <div class="issues">
     <app-header type="big" text="Gitlab Issues Emoji" />
-    <div class="issues-section">
-      <app-header text="Issues with milestone" />
-      <app-issue
-        v-for="{ id, title, milestone } in issuesWithMilestone"
-        :key="id"
-        :id="id"
-        :title="title"
-        :milestone="milestone"
-      />
-    </div>
 
-    <div class="issues-section">
-      <app-header text="Issues without milestone" />
+    <app-loader v-if="loading" />
 
-      <div class="issues-list">
+    <template v-else>
+      <div class="issues-section">
+        <app-header text="Issues with milestone" />
         <app-issue
-          v-for="{
-            id,
-            title,
-            milestone = { id: '' },
-          } in issuesWithoutMilestone"
+          v-for="{ id, title, milestone } in issuesWithMilestone"
           :key="id"
           :id="id"
           :title="title"
           :milestone="milestone"
         />
       </div>
-    </div>
+
+      <div class="issues-section">
+        <app-header text="Issues without milestone" />
+
+        <div class="issues-list">
+          <app-issue
+            v-for="{
+              id,
+              title,
+              milestone = { id: '' },
+            } in issuesWithoutMilestone"
+            :key="id"
+            :id="id"
+            :title="title"
+            :milestone="milestone"
+          />
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 import AppHeader from '@components/Header.vue';
 import AppIssue from '@components/Issue.vue';
+import AppLoader from '@components/Loading.vue';
 
 import GitlabService from '@services';
 
@@ -43,10 +49,12 @@ export default {
   components: {
     AppHeader,
     AppIssue,
+    AppLoader,
   },
 
   data: () => ({
     issues: [],
+    loading: true,
   }),
 
   computed: {
@@ -64,6 +72,8 @@ export default {
       const service = new GitlabService();
 
       const issues = await service.getIssues();
+
+      this.loading = false;
 
       this.issues = issues;
     },

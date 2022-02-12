@@ -1,10 +1,8 @@
 <template>
   <div class="issue">
-    <transition name="emoji">
-      <div class="issue-emoji" @click="changeEmoji">
-        {{ emojiHex | emoji }}
-      </div>
-    </transition>
+    <div class="issue-emoji" @click="changeEmoji">
+      {{ emojiHex | emoji }}
+    </div>
 
     <div class="issue-body">
       <p v-text="title" />
