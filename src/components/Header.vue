@@ -25,7 +25,7 @@ h1 {
   font-size: 16px;
   font-weight: bold;
 
-  margin: 0 0 15px;
+  margin: 0 0 20px;
 }
 
 .big-heading {

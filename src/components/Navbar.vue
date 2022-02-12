@@ -10,12 +10,8 @@
 </template>
 
 <script>
-import { randomEmoji } from '@utils';
-
 export default {
-  created() {
-    // console.log( randomEmoji();
-  },
+  name: 'Navbar',
 };
 </script>
 
@@ -38,7 +34,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
 
   font-size: 16px;
 }

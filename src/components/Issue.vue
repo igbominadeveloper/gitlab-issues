@@ -4,8 +4,10 @@
       {{ emojiHex | emoji }}
     </div>
     <div class="issue-body">
-      <p>Test Issue</p>
-      <p>Milestone: Challenge Completion</p>
+      <p v-text="title" />
+      <p class="issue-body-milestone" v-show="milestone.length > 0">
+        Milestone: Challenge Completion
+      </p>
     </div>
   </div>
 </template>
@@ -17,6 +19,8 @@ export default {
   name: 'Issue',
   data: () => ({
     emojiHex: '',
+    title: 'Test Issue',
+    milestone: 'Milestone: Challenge Completion',
   }),
   created() {
     this.emojiHex = randomEmoji();
@@ -55,5 +59,9 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.issue-body-milestone {
+  opacity: 0.6;
 }
 </style>
