@@ -1,25 +1,35 @@
 <template>
-  <main>
-    <navbar />
+  <main class="main">
+    <app-navbar />
+
+    <div class="main-content">
+      <app-issues />
+    </div>
   </main>
 </template>
 
 <script>
-import Navbar from '@components/Navbar.vue';
+import AppNavbar from '@components/Navbar.vue';
+import AppIssues from '@components/Issues.vue';
 
 export default {
   name: 'Home',
   components: {
-    Navbar,
+    AppNavbar,
+    AppIssues,
   },
 };
 </script>
 
 <style scoped>
-main {
+.main {
   width: 100%;
   height: 100%;
 
-  background-color: var(--color-primary-gray);
+  background-color: var(--color-white);
+}
+
+.main-content {
+  padding: 20px;
 }
 </style>

@@ -1,13 +1,20 @@
 <template>
-  <h1>{{ title }}</h1>
+  <h1 :class="type === 'big' ? 'big-heading' : ''">{{ text }}</h1>
 </template>
 
 <script>
 export default {
   props: {
-    title: {
+    text: {
       type: String,
       required: true,
+    },
+    type: {
+      type: String,
+      default: 'small',
+      validator(value) {
+        return ['big', 'small'].includes(value);
+      },
     },
   },
 };
@@ -15,8 +22,13 @@ export default {
 
 <style scoped>
 h1 {
-  font-size: 2em;
+  font-size: 16px;
+  font-weight: bold;
 
-  margin: 20px 0;
+  margin: 0 0 15px;
+}
+
+.big-heading {
+  font-size: 18px;
 }
 </style>
