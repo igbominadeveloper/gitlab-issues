@@ -1,31 +1,9 @@
-# vite-vue2-simple-starter
+# Gitlab Issues
 
-> ### Vue2 + Vite + Vuex + Vue-router + Axios
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b40349d-35c9-43db-8b9c-5dcf7a4cd0c4/deploy-status)](https://app.netlify.com/sites/gitlab-issues/deploys)
 
-We provide sample Code about Vuex and Vue-router and Axios
+## How to Start
 
-> #### TERMINAL NPM RUN SERVE
-![sample](https://user-images.githubusercontent.com/46044125/150083047-23b5535d-dbd1-4a47-9bd4-502bbe641d87.png)
+### - Run `yarn` or `npm install`
 
-> #### LIGHTHOUSE SCORE
-![image](https://user-images.githubusercontent.com/46044125/150083333-bf268290-466e-4cf8-927f-e5fff30bf84f.png)
-
-> #### If you want to use this starter
-> 
-```
-npm install
-```
-
-> #### If you want run this starter
-```
-npm run serve
-```
-
-> #### If you want build starter
-```
-npm run build:prod
-```
-
-
-#### UPDATE INFO
-- check CHANGLOG.md
+### - Run `yarn serve` or `npm run serve` to boot it up locally
